@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import warningIcon from "../imgs/warning.png";
 import ValidateEmail from "./ValidateEmail";
 import ValidatePassword from "./ValidatePassword";
@@ -6,8 +6,10 @@ import ValidatePassword from "./ValidatePassword";
 export default function Join() {
   const [incorrectEmail, setIncorrectEmail] = useState(false); // If user enters a correct email but not one already used to sign up
 
-  const [showToggle, setShowToggle] = useState(""); // Toggle show/hide paddwords icons
-  const [showSecToggle, setShowSecToggle] = useState(""); // Toggle show/hide paddwords icons
+  const [showToggle, setShowToggle] = useState(false); // Toggle show/hide paddwords icons
+  const [showPassword, setShowPassword] = useState(false);
+  const [showSecToggle, setShowSecToggle] = useState(false); // Toggle show/hide passwords icons
+  const [showSecPassword, setShowSecPassword] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
   const [validEmail, setValidEmail] = useState(false);
@@ -26,13 +28,21 @@ export default function Join() {
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-  function enableSubmit() {
+  //   function enableSubmit() {
+  //     if (validEmail && validPassword && validSecPassword && passwordsMatch) {
+  //       setSubmitDisabled(false);
+  //     } else {
+  //       setSubmitDisabled(true);
+  //     }
+  //   }
+
+  useEffect(() => {
     if (validEmail && validPassword && validSecPassword && passwordsMatch) {
       setSubmitDisabled(false);
     } else {
       setSubmitDisabled(true);
     }
-  }
+  }, [validEmail, validPassword, validSecPassword, passwordsMatch]);
 
   function handleEmail(event) {
     let email = event.target.value;
@@ -41,7 +51,7 @@ export default function Join() {
     } else {
       setValidEmail(false);
     }
-    enableSubmit();
+    // enableSubmit();
   }
   function checkEmail(event) {
     if (!event.target.value) {
@@ -55,38 +65,36 @@ export default function Join() {
       }
     }
   }
-  function comparePasswords() {
+
+  useEffect(() => {
     if (firstPassword === secPassword) {
       setPasswordsMatch(true);
     } else {
       setPasswordsMatch(false);
     }
-  }
+  }, [secPassword, firstPassword]);
 
   function handlePassword(event) {
-    let password = event.target.value;
-    if (ValidatePassword(password)) {
+    setFirstPassword(event.target.value);
+    if (ValidatePassword(firstPassword)) {
       setValidPassword(true);
     } else {
       setValidPassword(false);
     }
-    comparePasswords();
-
-    enableSubmit();
+    // enableSubmit();
   }
+
   function handleSecPassword(event) {
-    let password = event.target.value;
-    if (ValidatePassword(password)) {
+    setSecPassword(event.target.value);
+    if (ValidatePassword(secPassword)) {
       setValidSecPassword(true);
     } else {
       setValidSecPassword(false);
     }
-    comparePasswords();
-    enableSubmit();
+    // enableSubmit();
   }
 
-  function checkPassword(event) {
-    setFirstPassword(event.target.value);
+  function checkPassword() {
     if (!firstPassword) {
       setPasswordMissing(true);
     } else {
@@ -97,10 +105,9 @@ export default function Join() {
         setInvalidPassword(true);
       }
     }
-    comparePasswords();
   }
-  function checkSecPassword(event) {
-    setSecPassword(event.target.value);
+
+  function checkSecPassword() {
     if (!secPassword) {
       setSecPasswordMissing(true);
     } else {
@@ -111,7 +118,6 @@ export default function Join() {
         setInvalidSecPassword(true);
       }
     }
-    comparePasswords();
   }
 
   function handleSubmit() {}
@@ -150,7 +156,7 @@ export default function Join() {
         </span>
         <span className="password-wrapper">
           <input
-            type={showToggle === "hide" ? "text" : "password"}
+            type={showPassword ? "text" : "password"}
             placeholder={`${
               passwordMissing ? "Password required" : "Password"
             }`}
@@ -160,55 +166,55 @@ export default function Join() {
             required
             minLength={6}
             onChange={handlePassword}
-            onFocus={() => setShowToggle("show")}
+            onFocus={() => setShowToggle(true)}
             onBlur={checkPassword}
           />
-          {showToggle === "show" && (
+          {showToggle && !showPassword && (
             <i
               className="fa-solid fa-eye"
               id="toggle-password-show"
               onClick={() => {
-                setShowToggle("hide");
+                setShowPassword(true);
               }}
             ></i>
           )}
-          {showToggle === "hide" && (
+          {showToggle && showPassword && (
             <i
               className="fa-solid fa-eye-slash"
               id="toggle-password-hide"
-              onClick={() => setShowToggle("show")}
+              onClick={() => setShowPassword(false)}
             ></i>
           )}
         </span>
         <span className="password-wrapper">
           <input
-            type={showSecToggle === "hide" ? "text" : "password"}
+            type={showSecPassword ? "text" : "password"}
             placeholder={`${
               secPasswordMissing ? "Password required" : "Re-enter Password"
             }`}
-            id="password"
+            id="sec-password"
             className={`user-input valid-entry
                 ${secPasswordMissing ? "unfilled" : "valid-entry"}`}
             required
             minLength={6}
             onChange={handleSecPassword}
-            onFocus={() => setShowSecToggle("show")}
+            onFocus={() => setShowSecToggle(true)}
             onBlur={checkSecPassword}
           />
-          {showSecToggle === "show" && (
+          {showSecToggle && !showSecPassword && (
             <i
               className="fa-solid fa-eye"
               id="toggle-secPassword-show"
               onClick={() => {
-                setShowSecToggle("hide");
+                setShowSecPassword(true);
               }}
             ></i>
           )}
-          {showSecToggle === "hide" && (
+          {showSecToggle && showSecPassword && (
             <i
               className="fa-solid fa-eye-slash"
               id="toggle-secPassword-hide"
-              onClick={() => setShowSecToggle("show")}
+              onClick={() => setShowSecPassword(false)}
             ></i>
           )}
           {!passwordsMatch && <p className="invalid">Passwords don't match</p>}

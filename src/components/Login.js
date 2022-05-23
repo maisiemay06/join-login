@@ -6,7 +6,8 @@ import ValidatePassword from "./ValidatePassword";
 export default function Login() {
   const [incorrectEmail, setIncorrectEmail] = useState(false); // If user enters a correct email but not one already used to sign up
 
-  const [showToggle, setShowToggle] = useState(""); // Toggle show/hide paddwords icons
+  const [showToggle, setShowToggle] = useState(false); // Toggle show/hide paddwords icons
+  const [showPassword, setShowPassword] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
   const [validEmail, setValidEmail] = useState(false);
@@ -106,7 +107,7 @@ export default function Login() {
         </span>
         <span className="password-wrapper">
           <input
-            type={showToggle === "hide" ? "text" : "password"}
+            type={showPassword ? "text" : "password"}
             placeholder={`${
               passwordMissing ? "Password required" : "Password"
             }`}
@@ -117,23 +118,23 @@ export default function Login() {
             required
             minLength={6}
             onChange={handlePassword}
-            onFocus={() => setShowToggle("show")}
+            onFocus={() => setShowToggle(true)}
             onBlur={checkPassword}
           />
-          {showToggle === "show" && (
+          {showToggle && !showPassword && (
             <i
               className="fa-solid fa-eye"
               id="toggle-password-show"
               onClick={() => {
-                setShowToggle("hide");
+                setShowPassword(true);
               }}
             ></i>
           )}
-          {showToggle === "hide" && (
+          {showToggle && showPassword && (
             <i
               className="fa-solid fa-eye-slash"
               id="toggle-password-hide"
-              onClick={() => setShowToggle("show")}
+              onClick={() => setShowPassword(false)}
             ></i>
           )}
         </span>

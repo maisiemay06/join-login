@@ -71,6 +71,7 @@ body {
 .active {
   border-bottom: 2px solid #171717;
   color: #171717;
+  cursor: pointer;
 }
 
 .inactive {
@@ -108,19 +109,19 @@ body {
 
 .login input {
   width: 85%;
-  max-width: 487px;
+  max-width: 519px;
   padding: 0 15px;
   margin-top: 15px;
   border-radius: 24px;
   height: 40px;
-  transition: 0.3s ease-out;
+  transition: 0.3s linear;
+  box-sizing: border-box;
 }
 .valid-entry {
   border: solid 0.8px #959595;
 }
 .valid-entry:hover {
   border: solid 4px #171717;
-  margin: 13px -4px -4px -4px;
 }
 input:focus {
   outline: none;
@@ -133,7 +134,6 @@ input:focus {
 .unfilled:hover,
 .invalid-entry:hover {
   border: solid 4px #db0000;
-  margin: 13px -4px -4px -4px;
 }
 
 .invalid {
@@ -167,6 +167,7 @@ input:focus {
 #login-button:disabled {
   background-color: #eeeeee;
   border: #eeeeee;
+  cursor: default;
 }
 .login-button:disabled:hover {
   cursor: default;
@@ -275,14 +276,11 @@ input:focus {
   margin-bottom: 5px;
 }
 
-.join .user-input:hover {
-  margin: 2px -4px -3px -4px;
-}
 #pass-requirements {
   text-align: left;
   font-size: 0.75rem;
   width: 80%;
-  margin: auto;
+  margin: 8px auto;
 }
 
 .highlight-requirements {
@@ -292,7 +290,7 @@ input:focus {
 /* CONTACT */
 .contact {
   font-size: 0.7em;
-  margin-top: 23px;
+  margin-top: -30px;
 }
 .contact a {
   color: #171717;
@@ -304,10 +302,7 @@ input:focus {
   .card {
     width: 100%;
   }
-  .login input {
-    width: 67%;
-    margin-top: 5px;
-  }
+  .login input,
   .login #login-button,
   .socials {
     width: 75%;

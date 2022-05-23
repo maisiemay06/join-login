@@ -1,4 +1,6 @@
 export default function ValidatePassword(password) {
-  var regex = /^(?=.*[A-Z])(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,}$/;
+  // upper & lower case, special char, min 6
+  const regex = /^(?=.*[A-Z])(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{6,}/;
+
   return regex.test(password);
 }
