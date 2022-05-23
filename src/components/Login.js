@@ -8,9 +8,11 @@ export default function Login() {
 
   const [showToggle, setShowToggle] = useState(""); // Toggle show/hide paddwords icons
   const [submitDisabled, setSubmitDisabled] = useState(true);
+
   const [validEmail, setValidEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [emailMissing, setEmailMissing] = useState(false);
+
   const [validPassword, setValidPassword] = useState(false);
   const [invalidPassword, setInvalidPassword] = useState(false);
   const [passwordMissing, setPasswordMissing] = useState(false);
@@ -99,9 +101,7 @@ export default function Login() {
             onBlur={checkEmail}
           />
           {invalidEmail && (
-            <p className="invalid">
-              please use a valid email <address></address>
-            </p>
+            <p className="invalid">please use a valid email address</p>
           )}
         </span>
         <span className="password-wrapper">

@@ -13,16 +13,21 @@ export default function Join() {
   const [validEmail, setValidEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [emailMissing, setEmailMissing] = useState(false);
+
   const [validPassword, setValidPassword] = useState(false);
   const [invalidPassword, setInvalidPassword] = useState(false);
   const [passwordMissing, setPasswordMissing] = useState(false);
+  const [firstPassword, setFirstPassword] = useState("");
 
   const [validSecPassword, setValidSecPassword] = useState(false);
   const [invalidSecPassword, setInvalidSecPassword] = useState(false);
   const [secPasswordMissing, setSecPasswordMissing] = useState(false);
+  const [secPassword, setSecPassword] = useState("");
+
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
   function enableSubmit() {
-    if (validEmail && validPassword && validSecPassword) {
+    if (validEmail && validPassword && validSecPassword && passwordsMatch) {
       setSubmitDisabled(false);
     } else {
       setSubmitDisabled(true);
@@ -50,6 +55,13 @@ export default function Join() {
       }
     }
   }
+  function comparePasswords() {
+    if (firstPassword === secPassword) {
+      setPasswordsMatch(true);
+    } else {
+      setPasswordsMatch(false);
+    }
+  }
 
   function handlePassword(event) {
     let password = event.target.value;
@@ -58,6 +70,8 @@ export default function Join() {
     } else {
       setValidPassword(false);
     }
+    comparePasswords();
+
     enableSubmit();
   }
   function handleSecPassword(event) {
@@ -67,10 +81,13 @@ export default function Join() {
     } else {
       setValidSecPassword(false);
     }
+    comparePasswords();
     enableSubmit();
   }
+
   function checkPassword(event) {
-    if (!event.target.value) {
+    setFirstPassword(event.target.value);
+    if (!firstPassword) {
       setPasswordMissing(true);
     } else {
       setPasswordMissing(false);
@@ -80,9 +97,11 @@ export default function Join() {
         setInvalidPassword(true);
       }
     }
+    comparePasswords();
   }
   function checkSecPassword(event) {
-    if (!event.target.value) {
+    setSecPassword(event.target.value);
+    if (!secPassword) {
       setSecPasswordMissing(true);
     } else {
       setSecPasswordMissing(false);
@@ -92,6 +111,7 @@ export default function Join() {
         setInvalidSecPassword(true);
       }
     }
+    comparePasswords();
   }
 
   function handleSubmit() {}
@@ -125,9 +145,7 @@ export default function Join() {
             onBlur={checkEmail}
           />
           {invalidEmail && (
-            <p className="invalid">
-              please use a valid email <address></address>
-            </p>
+            <p className="invalid">please use a valid email address</p>
           )}
         </span>
         <span className="password-wrapper">
@@ -137,8 +155,7 @@ export default function Join() {
               passwordMissing ? "Password required" : "Password"
             }`}
             id="password"
-            className={`user-input 
-              ${invalidPassword ? "invalid-entry" : "valid-entry"} 
+            className={`user-input valid-entry"
               ${passwordMissing ? "unfilled" : "valid-entry"}`}
             required
             minLength={6}
@@ -170,8 +187,7 @@ export default function Join() {
               secPasswordMissing ? "Password required" : "Re-enter Password"
             }`}
             id="password"
-            className={`user-input 
-                ${invalidSecPassword ? "invalid-entry" : "valid-entry"} 
+            className={`user-input valid-entry
                 ${secPasswordMissing ? "unfilled" : "valid-entry"}`}
             required
             minLength={6}
@@ -195,8 +211,17 @@ export default function Join() {
               onClick={() => setShowSecToggle("show")}
             ></i>
           )}
+          {!passwordsMatch && <p className="invalid">Passwords don't match</p>}
         </span>
-        <p id="pass-requirements">
+        <p
+          id="pass-requirements"
+          className={`${
+            (passwordsMatch && invalidPassword) ||
+            (passwordsMatch && invalidSecPassword)
+              ? "highlight-requirements"
+              : ""
+          }`}
+        >
           Must contain at least 1 uppercase letter and a special character
         </p>
         <input

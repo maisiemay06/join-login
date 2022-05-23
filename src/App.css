@@ -285,6 +285,10 @@ input:focus {
   margin: auto;
 }
 
+.highlight-requirements {
+  color: #db0000;
+}
+
 /* CONTACT */
 .contact {
   font-size: 0.7em;
@@ -327,5 +331,11 @@ input:focus {
 
   #pass-requirements {
     display: none;
+    width: 72%;
+    margin: auto;
+    text-align: center;
+  }
+  .highlight-requirements {
+    display: block !important;
   }
 }
