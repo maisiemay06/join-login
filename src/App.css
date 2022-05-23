@@ -111,26 +111,35 @@ body {
   max-width: 487px;
   padding: 0 15px;
   margin-top: 15px;
-  border: solid 0.8px #959595;
   border-radius: 24px;
   height: 40px;
   transition: 0.3s ease-out;
 }
-.login .user-input:hover {
+.valid-entry {
+  border: solid 0.8px #959595;
+}
+.valid-entry:hover {
   border: solid 4px #171717;
   margin: 13px -4px -4px -4px;
 }
 input:focus {
   outline: none;
 }
+.unfilled,
 .invalid-entry {
   color: #db0000;
+  border: solid 0.8px #db0000;
+}
+.unfilled:hover,
+.invalid-entry:hover {
+  border: solid 4px #db0000;
+  margin: 13px -4px -4px -4px;
 }
 
 .invalid {
   font-size: 0.75rem;
   text-align: left;
-  width: 85%;
+  width: 80%;
   margin: auto;
   color: #db0000;
 }
@@ -267,7 +276,6 @@ input:focus {
 }
 
 .join .user-input:hover {
-  border: solid 4px #171717;
   margin: 2px -4px -3px -4px;
 }
 #pass-requirements {
@@ -292,8 +300,7 @@ input:focus {
   .card {
     width: 100%;
   }
-  .login input,
-  .invalid {
+  .login input {
     width: 67%;
     margin-top: 5px;
   }
@@ -304,6 +311,10 @@ input:focus {
   }
   .social-button {
     margin-bottom: 5px;
+  }
+
+  .invalid {
+    width: 72%;
   }
 
   .contact {

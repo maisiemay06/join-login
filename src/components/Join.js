@@ -117,8 +117,8 @@ export default function Join() {
               emailMissing ? "Email address required" : "Email address"
             }`}
             className={`user-input 
-            ${invalidEmail ? "invalid-entry" : ""}
-            ${emailMissing ? "unfilled" : ""}`}
+            ${invalidEmail ? "invalid-entry" : "valid-entry"}
+            ${emailMissing ? "unfilled" : "valid-entry"}`}
             id="email-input"
             required
             onChange={handleEmail}
@@ -138,8 +138,8 @@ export default function Join() {
             }`}
             id="password"
             className={`user-input 
-              ${invalidPassword ? "invalid-entry" : ""} 
-              ${passwordMissing ? "unfilled" : ""}`}
+              ${invalidPassword ? "invalid-entry" : "valid-entry"} 
+              ${passwordMissing ? "unfilled" : "valid-entry"}`}
             required
             minLength={6}
             onChange={handlePassword}
@@ -171,8 +171,8 @@ export default function Join() {
             }`}
             id="password"
             className={`user-input 
-                ${invalidSecPassword ? "invalid-entry" : ""} 
-                ${secPasswordMissing ? "unfilled" : ""}`}
+                ${invalidSecPassword ? "invalid-entry" : "valid-entry"} 
+                ${secPasswordMissing ? "unfilled" : "valid-entry"}`}
             required
             minLength={6}
             onChange={handleSecPassword}

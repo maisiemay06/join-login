@@ -90,9 +90,9 @@ export default function Login() {
             placeholder={`${
               emailMissing ? "Email address required" : "Email address"
             }`}
-            className={`user-input ${invalidEmail ? "invalid-entry" : ""} ${
-              emailMissing ? "unfilled" : ""
-            }`}
+            className={`user-input ${
+              invalidEmail ? "invalid-entry" : "valid-entry"
+            } ${emailMissing ? "unfilled" : "valid-entry"}`}
             id="email-input"
             required
             onChange={handleEmail}
@@ -112,8 +112,8 @@ export default function Login() {
             }`}
             id="password"
             className={`user-input 
-            ${invalidPassword ? "invalid-entry" : ""} 
-            ${passwordMissing ? "unfilled" : ""}`}
+            ${invalidPassword ? "invalid-entry" : "valid-entry"} 
+            ${passwordMissing ? "unfilled" : "valid-entry"}`}
             required
             minLength={6}
             onChange={handlePassword}
