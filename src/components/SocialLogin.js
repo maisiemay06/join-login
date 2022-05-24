@@ -1,17 +1,6 @@
 export default function SocialLogin({ action }) {
   return (
     <div className={`alt-login ${action}`}>
-      {action === "Login" && (
-        <h3 className="card-title" id="login-social">
-          or login with...
-        </h3>
-      )}
-      {action === "Join" && (
-        <h3 className="card-title" id="join-social">
-          join with...
-        </h3>
-      )}
-
       <div className="socials">
         <div className="li-login social-button ">
           <i className="fa-brands fa-linkedin-in"></i>
@@ -28,7 +17,7 @@ export default function SocialLogin({ action }) {
           <div className="spacer"></div>
         </div>
         <div className="fb-login social-button">
-          <i className="fa-brands fa-facebook-f"></i>
+          <i className="fa-brands fa-facebook"></i>
           <a href="">{action} with Facebook</a>
           <div className="spacer"></div>
         </div>

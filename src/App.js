@@ -4,7 +4,7 @@ import JoinLoginCard from "./components/JoinLoginCard";
 import PageTitle from "./components/PageTitle";
 
 function App() {
-  const [pageTitle, setPageTitle] = useState("login");
+  const [pageTitle, setPageTitle] = useState("Login");
 
   return (
     <div className="App">

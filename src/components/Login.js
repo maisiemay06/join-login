@@ -82,7 +82,7 @@ export default function Login() {
           </p>
         </div>
       ) : (
-        <h3 className="card-title">login with your email</h3>
+        <h3 className="card-title email-title">or</h3>
       )}
       <form className="login">
         <span className="email-wrapper">
@@ -138,7 +138,7 @@ export default function Login() {
         </span>
         <input
           type="submit"
-          value="login now"
+          value="continue"
           id="login-button"
           disabled={submitDisabled ? true : false}
           onClick={handleSubmit}

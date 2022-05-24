@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Join from "./Join";
 import Login from "./Login";
 import SocialLogin from "./SocialLogin";
@@ -9,25 +8,31 @@ export default function JoinLoginCard({ pageTitle, setPageTitle }) {
       {/* Join/Login Buttons */}
       <div className="page-nav">
         <div
-          className={`tab ${pageTitle === "join" ? "active" : "inactive"}`}
-          onClick={() => setPageTitle("join")}
+          className={`tab ${pageTitle === "Signup" ? "active" : "inactive"}`}
+          onClick={() => setPageTitle("Signup")}
         >
-          join
+          signup
         </div>
         <div
-          className={`tab ${pageTitle === "login" ? "active" : "inactive"}`}
-          onClick={() => setPageTitle("login")}
+          className={`tab ${pageTitle === "Login" ? "active" : "inactive"}`}
+          onClick={() => setPageTitle("Login")}
         >
           login
         </div>
       </div>
-      {/* Login Page */}
-      {pageTitle === "login" && <Login />}
-      {pageTitle === "login" && <SocialLogin action={"Login"} />}
+      {pageTitle === "Login" ? (
+        <h3 className="card-title" id="login-social">
+          login with...
+        </h3>
+      ) : (
+        <h3 className="card-title" id="join-social">
+          signup for free now
+        </h3>
+      )}
 
-      {/* Join Page */}
-      {pageTitle === "join" && <SocialLogin action={"Join"} />}
-      {pageTitle === "join" && <Join />}
+      <SocialLogin action={pageTitle} />
+
+      {pageTitle === "Login" ? <Login /> : <Join />}
     </div>
   );
 }

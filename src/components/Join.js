@@ -122,7 +122,7 @@ export default function Join() {
           </p>
         </div>
       ) : (
-        <h3 className="card-title">or join with email</h3>
+        <h3 className="card-title email-title">or</h3>
       )}
       <form className="login join">
         <span className="email-wrapper">
@@ -221,7 +221,7 @@ export default function Join() {
         </p>
         <input
           type="submit"
-          value="login now"
+          value="continue"
           id="login-button"
           disabled={submitDisabled ? true : false}
           onClick={handleSubmit}

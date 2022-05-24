@@ -49,7 +49,8 @@ body {
   margin: 60px auto;
   width: 80vw;
   max-width: 640px;
-  height: 80vh;
+  height: auto;
+  padding-bottom: 50px;
   max-height: 600px;
   border-radius: 13px;
 }
@@ -84,6 +85,70 @@ body {
   font-size: 1.25rem;
   font-weight: 400;
   width: 100%;
+  margin: 25px 0 18px 0;
+}
+
+.email-title {
+  margin: 18px 0;
+}
+
+/* SOCIAL BUTTONS */
+.alt-login {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.alt-login-title {
+  font-size: 1.25rem;
+  width: 100%;
+}
+
+.socials {
+  margin-top: 10px;
+  max-width: 519px;
+  width: 95%;
+}
+
+.social-button {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  height: 48px;
+  transition: 0.1s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+  border: 1px solid #171717;
+  padding: 0 23px;
+}
+
+.social-button:hover {
+  background-color: #eeeeee;
+}
+
+.social-button a {
+  color: #171717;
+  text-decoration: none;
+}
+
+.fa-brands {
+  font-size: 28px;
+}
+.fa-linkedin-in {
+  color: #1666c2;
+}
+.g-logo {
+  height: 30px;
+  margin-left: -2px;
+}
+.fa-facebook {
+  color: #3875ea;
+}
+
+.spacer {
+  width: 24px;
 }
 
 /* LOGIN WITH EMAIL*/
@@ -113,7 +178,7 @@ body {
   max-width: 519px;
   padding: 0 15px;
   margin-top: 15px;
-  border-radius: 24px;
+  border-radius: 6px;
   height: 40px;
   transition: 0.3s linear;
   box-sizing: border-box;
@@ -121,6 +186,7 @@ body {
 .login input::placeholder {
   font-size: 0.875rem;
   color: #171717;
+  font-weight: 500;
 }
 .valid-entry {
   border: solid 0.8px #959595;
@@ -191,81 +257,6 @@ input:focus {
   cursor: pointer;
 }
 
-/* SOCIAL BUTTONS */
-.alt-login {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.alt-login-title {
-  font-size: 1.25rem;
-  width: 100%;
-}
-
-.socials {
-  margin-top: 10px;
-  max-width: 519px;
-  width: 95%;
-}
-
-.social-button {
-  font-size: 0.875rem;
-  font-weight: 400;
-  border: none;
-  border-radius: 24px;
-  margin-bottom: 10px;
-  height: 48px;
-  transition: 0.2s ease-in;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.fb-login {
-  background-color: #394ced;
-}
-.fb-login:hover {
-  background-color: #182ac6;
-}
-
-.fb-login a,
-.li-login a {
-  color: #fff;
-  margin-left: -17px;
-  text-decoration: none;
-}
-
-.g-login {
-  background-color: #eeeeee;
-}
-.g-login:hover {
-  background-color: #e0dfdf;
-}
-.g-login a {
-  color: #171717;
-  text-decoration: none;
-  margin-left: -20px;
-}
-
-.li-login {
-  background-color: #0072b1;
-}
-.li-login:hover {
-  background-color: #0e58ad;
-}
-
-.fa-brands {
-  color: #fff;
-  font-size: 19px;
-  padding-left: 17px;
-}
-
-.g-logo {
-  height: 22px;
-  padding-left: 12px;
-}
-
 /* JOIN PAGE */
 
 .join input {
@@ -311,17 +302,6 @@ input:focus {
     width: 100%;
     margin: 30px auto;
     border-radius: 13px 13px 0 0;
-  }
-
-  .login .card-title {
-    margin: 10px 0 20px 0;
-  }
-  .join .card-title {
-    margin: 25px 0 20px 0;
-  }
-
-  #join-social {
-    margin: 20px 0;
   }
 
   .login input,
