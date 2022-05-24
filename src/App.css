@@ -322,18 +322,15 @@ input:focus {
   .contact {
     background-color: var(--white);
     height: 100px;
-    margin-top: -60px;
+    margin-top: -30px;
     width: 100%;
     margin-bottom: 0;
   }
 
   #pass-requirements {
-    display: none;
     width: 72%;
     margin: auto;
     text-align: center;
-  }
-  .highlight-requirements {
-    display: block !important;
+    margin: 10px auto;
   }
 }
