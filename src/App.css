@@ -299,9 +299,18 @@ input:focus {
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 480px) {
+  .App-header .page-title {
+    font-size: 1.56rem;
+  }
+
   .card {
     width: 100%;
+    margin: 30px auto;
   }
+  .card-title {
+    margin: 10px 0;
+  }
+
   .login input,
   .login #login-button,
   .socials {
@@ -319,9 +328,10 @@ input:focus {
   .contact {
     background-color: var(--white);
     height: 100px;
-    margin-top: -60px;
+    margin-top: -90px;
     width: 100%;
     margin-bottom: 0;
+    z-index: 10;
   }
 
   #pass-requirements {
