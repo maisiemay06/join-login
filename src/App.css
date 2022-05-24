@@ -126,6 +126,7 @@ body {
 
 .social-button:hover {
   background-color: #eeeeee;
+  cursor: pointer;
 }
 
 .social-button a {
