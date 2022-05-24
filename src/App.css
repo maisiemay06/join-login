@@ -27,7 +27,7 @@ body {
   color: var(--main-blue);
   font-size: 2.1rem;
   font-weight: 600;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 .App-header .page-title::first-letter {
   text-decoration-skip-ink: auto;
@@ -323,7 +323,7 @@ input:focus {
   .login input,
   .login #login-button,
   .socials {
-    width: 75%;
+    width: 85%;
     margin-top: 5px;
   }
   .social-button {
