@@ -118,6 +118,10 @@ body {
   transition: 0.3s linear;
   box-sizing: border-box;
 }
+.login input::placeholder {
+  font-size: 0.875rem;
+  color: #171717;
+}
 .valid-entry {
   border: solid 0.8px #959595;
 }
@@ -309,8 +313,11 @@ input:focus {
     margin: 30px auto;
     border-radius: 13px 13px 0 0;
   }
-  .card-title {
+  .login .card-title {
     margin: 10px 0;
+  }
+  .join .card-title {
+    margin: 25px 0 10px 0;
   }
 
   .login input,
@@ -330,7 +337,7 @@ input:focus {
   .contact {
     background-color: var(--white);
     height: 200px;
-    margin-top: -90px;
+    margin-top: -80px;
     width: 100%;
     margin-bottom: 0;
   }
