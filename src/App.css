@@ -272,7 +272,6 @@ input:focus {
   margin-top: 5px;
 }
 
-.join .card-title,
 .Join .card-title {
   margin: 10px 0;
 }
@@ -313,11 +312,16 @@ input:focus {
     margin: 30px auto;
     border-radius: 13px 13px 0 0;
   }
+
   .login .card-title {
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
   }
   .join .card-title {
-    margin: 25px 0 10px 0;
+    margin: 25px 0 20px 0;
+  }
+
+  #join-social {
+    margin: 20px 0;
   }
 
   .login input,
