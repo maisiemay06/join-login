@@ -337,7 +337,7 @@ input:focus {
   .contact {
     background-color: var(--white);
     height: 200px;
-    margin-top: -80px;
+    margin-top: -60px;
     width: 100%;
     margin-bottom: 0;
   }
