@@ -331,8 +331,6 @@ input:focus {
     margin-top: -90px;
     width: 100%;
     margin-bottom: 0;
-    z-index: 10;
-    overflow: hidden;
   }
 
   #pass-requirements {
