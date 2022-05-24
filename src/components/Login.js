@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import warningIcon from "../imgs/warning.png";
 import ValidateEmail from "./ValidateEmail";
 import ValidatePassword from "./ValidatePassword";
@@ -18,13 +18,13 @@ export default function Login() {
   const [invalidPassword, setInvalidPassword] = useState(false);
   const [passwordMissing, setPasswordMissing] = useState(false);
 
-  function enableSubmit() {
+  useEffect(() => {
     if (validEmail && validPassword) {
       setSubmitDisabled(false);
     } else {
       setSubmitDisabled(true);
     }
-  }
+  }, [validEmail, validPassword]);
 
   function handleEmail(event) {
     let email = event.target.value;
@@ -33,7 +33,6 @@ export default function Login() {
     } else {
       setValidEmail(false);
     }
-    enableSubmit();
   }
 
   function checkEmail(event) {
@@ -55,7 +54,6 @@ export default function Login() {
     } else {
       setValidPassword(false);
     }
-    enableSubmit();
   }
 
   function checkPassword(event) {

@@ -28,14 +28,6 @@ export default function Join() {
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-  //   function enableSubmit() {
-  //     if (validEmail && validPassword && validSecPassword && passwordsMatch) {
-  //       setSubmitDisabled(false);
-  //     } else {
-  //       setSubmitDisabled(true);
-  //     }
-  //   }
-
   useEffect(() => {
     if (validEmail && validPassword && validSecPassword && passwordsMatch) {
       setSubmitDisabled(false);
@@ -51,7 +43,6 @@ export default function Join() {
     } else {
       setValidEmail(false);
     }
-    // enableSubmit();
   }
   function checkEmail(event) {
     if (!event.target.value) {
@@ -81,7 +72,6 @@ export default function Join() {
     } else {
       setValidPassword(false);
     }
-    // enableSubmit();
   }
 
   function handleSecPassword(event) {
@@ -91,7 +81,6 @@ export default function Join() {
     } else {
       setValidSecPassword(false);
     }
-    // enableSubmit();
   }
 
   function checkPassword() {
